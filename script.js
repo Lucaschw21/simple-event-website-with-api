@@ -11,10 +11,9 @@ fetch(`https://quiz.vilor.com/api/events/${eventId}/details`, {
 })
 .then(response => response.json())
 .then(data => {
-    // Get the contact-right element
+    
     const registerRight = document.querySelector('.register-right');
 
-    // Change the values in the contact-right element
     registerRight.querySelector('img').src = data.img;
     registerRight.querySelector('h3').textContent = data.name;
     registerRight.querySelector('p').textContent = data.description;
