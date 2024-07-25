@@ -35,7 +35,7 @@ fetch('https://quiz.vilor.com/api/events/listing', {
   })
   .then(response => response.json())
   .then(data => {
-    const containerElement = document.querySelector('.container'); // Get the container element in your HTML
+    const containerElement = document.querySelector('.container');
     data.slice(0, 10).forEach(item => { // Loop through the first 10 items of the data
       // Create a new .box element for each data item
       const boxElement = document.createElement('div');
@@ -43,22 +43,22 @@ fetch('https://quiz.vilor.com/api/events/listing', {
   
       // Create and append the img element
       const imgElement = document.createElement('img');
-      imgElement.src = item.img; // Set the src attribute to the image URL from your data
+      imgElement.src = item.img; 
       boxElement.appendChild(imgElement);
   
       // Create and append the h3 element
       const h3Element = document.createElement('h3');
-      h3Element.textContent = item.name; // Set the text content to the event name from your data
+      h3Element.textContent = item.name; 
       boxElement.appendChild(h3Element);
   
       // Create and append the p element for the description
       const p1Element = document.createElement('p');
-      p1Element.textContent = item.description; // Set the text content to the event description from your data
+      p1Element.textContent = item.description; 
       boxElement.appendChild(p1Element);
   
       // Create and append the p element for the date
       const p2Element = document.createElement('p');
-      p2Element.innerHTML = "<b>Date:</b> " + item.date; // Set the innerHTML to the event date from your data
+      p2Element.innerHTML = "<b>Date:</b> " + item.date; 
       boxElement.appendChild(p2Element);
   
         // If the event has zero remaining slots, make the box slightly grey and change the button to a "sold out" button
@@ -75,7 +75,7 @@ fetch('https://quiz.vilor.com/api/events/listing', {
         } else {
             // If the event has more than zero remaining slots, create and append the registration button
             const registerButton = document.createElement('a');
-            registerButton.href = `registration.html?id=${item.id}`; // Set the href attribute to the registration link from your data
+            registerButton.href = `registration.html?id=${item.id}`; 
             registerButton.classList.add('btn');
             registerButton.textContent = 'Register';
             boxElement.appendChild(registerButton);
@@ -140,9 +140,6 @@ fetch('https://quiz.vilor.com/api/events/listing', {
         messageElement.textContent = 'Registration successful!';
         messageElement.style.color = 'green';
         document.getElementById('register-form').action = `https://quiz.vilor.com/api/events/${eventId}/register`;
-        // setTimeout(function() {
-        //     window.history.back();  // Redirect user to the previous page after 3 seconds
-        // }, 3000);
         return true;
     } else {
         event.preventDefault();
@@ -167,7 +164,6 @@ function setErrorFor(input, message) {
     } else {
         console.error("Element not found in the DOM.");
     }
-	//small.innerText = message;
 }
 
 function setSuccessFor(input) {
