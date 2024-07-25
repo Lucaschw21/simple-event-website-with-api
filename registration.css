@@ -1,0 +1,143 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: appleFont;
+}
+
+@font-face{
+    font-family: appleFont;
+    src:url(SF-Pro.ttf);
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+body{
+    background-color:#f0f1ff;
+}
+
+.register-container{
+    width: 80%;
+    margin: 50px auto; 
+}
+
+.register-box{
+    background: #fff;
+    display: flex;
+}
+
+.register-left{
+    flex-basis: 50%;
+    padding: 40px 60px;
+}
+
+.register-right{
+    flex-basis: 50%;
+    padding: 40px;
+    background: #f17c1e;
+    color: #fff;
+}
+
+h1{
+    margin-bottom: 10px;
+}
+
+.register-container p{
+    margin-bottom: 10px;
+}
+
+.input-group{
+    margin-bottom: 20px;
+}
+
+.input-row .input-group{
+    flex-basis: 45%;
+}
+
+input{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+    padding-bottom: 5px;
+}
+
+textarea{
+    width: 100%;
+    border: 1px solid #ccc;
+    outline: none;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+label{
+    margin: 15px 0 6px 0;
+    display: block;
+    color: #f17c1e;
+}
+
+.submitBtn{
+    background: #f17c1e;
+    width: 100px;
+    border: none;
+    outline: none;
+    color: #fff;
+    height: 35px;
+    border-radius: 30px;
+    margin-top: 20px;
+    padding-top:5px;
+    box-shadow: 0px 5px 15px 0px rgba (28, 0, 181, 0.3);
+    cursor: pointer;
+}
+
+.submitBtn:hover{
+    background-color: #ed6f07;
+}
+
+.register-left h3{
+    color: #f17c1e;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 30px;  
+}
+
+.register-right h3{
+    font-weight: 600;
+    margin-bottom: 30px;  
+}
+
+tr td:first-child{
+    padding-right: 80px;
+}
+
+tr td{
+    padding-top: 20px;
+}
+
+.input-box.error input{
+    border-bottom: 1px solid red;
+}
+
+.input-box.error textarea{
+    border-color: red;
+}
+
+.input-box.success input{
+    border-bottom: 1px solid #ccc;
+}
+
+.input-box.success small{
+    visibility: hidden;
+}
+
+.input-box.error small{
+    visibility: visible;
+    color: red;
+}
+
+img{
+    margin-bottom: 20px;
+}

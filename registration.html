@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Register with Vilor</title>
+        <link rel="stylesheet" href="registration.css">
+    </head>
+    <body>
+        <section>
+            <div class="register-container">
+                <h1> Registration Form </h1>
+                <p> Come and join us! </p>
+                <div class = "register-box">
+                    <div class="register-left">
+                        <h3> Please fill in the details </h3>
+                        <form method="post" id="register-form" action="" onsubmit="checkRegisterInputs(event)">
+                            <div class="input-group">
+                                <label>Name </label>
+                                <input type ="text" placeholder="Chan Hoe Wai" id="name" name="name">
+                                <small></small>
+                            </div>
+                            <div class="input-group">
+                                <label>Phone </label>
+                                <input type ="text" placeholder="+60123456789" id="phone" name="phone">
+                                <small></small>
+                            </div>
+                            <div class="input-group">
+                                <label>Email </label>
+                                <input type ="email" placeholder="abc21@gmail.com" id="email" name="email">
+                                <small></small>
+                            </div>                            
+                            <input type="submit" class="submitBtn" name="submit" value="REGISTER">
+                            <p id="message"></p>
+                        </form>
+    
+                    </div>
+                    <div class="register-right">
+                        <img src="" alt="">
+                        <h3> Name </h3>
+                        <p>Description</p>
+                        <table>
+                            <tr>
+                                <td>Date</td>
+                                <td>value</td>
+                            </tr>
+                            <tr>
+                                <td>Fee (RM)</td>
+                                <td>value</td>
+                            </tr>
+                            <tr>
+                                <td>Capacity</td>
+                                <td>Value</td>
+                            </tr>
+                            <tr>
+                                <td>Remaining Slots</td>
+                                <td>Value<br></td>
+                            </tr>
+                        </table>
+    
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>

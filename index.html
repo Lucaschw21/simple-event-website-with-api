@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management System</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script> 
+</head>
+<body>
+    <div class = "wrapper">
+        <h2>Vilor Events</h2>
+        <div class="container">
+            <!-- <div class="box">
+                <img src="" alt="">
+                <h3>Event</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. </p>
+                <br>
+                <p><b>Date:</b></p>
+                <br>
+                <a href="#" class="btn">Register</a>
+            </div> -->
+        </div>
+    </div>
+    <div class="calendar-container">
+        <h2>Event Calendar</h2>
+        <div id="calendar"></div>
+    </div>
+    
+    <script type="text/javascript" src="script.js"></script>
+</body>
+</html>
+<script>
+    $(document).ready(function() {
+    $('#calendar').fullCalendar();
+ });
+ </script>
