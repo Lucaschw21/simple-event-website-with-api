@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event Management System</title>
     <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script> 
 </head>
 <body>
     <div class = "wrapper">
@@ -25,12 +30,75 @@
         <h2>Event Calendar</h2>
         <div id="calendar"></div>
     </div>
+
+  <div id="eventModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <img id="eventImage" src="" alt="Event Image" style="height: 200px;"/>
+      <h2 id="eventTitle" class="event-details"></h2>
+      <p id="eventDescription" class="event-details"><b>Description: </b></p>
+      <p id="eventStart" class="event-details"></p>
+      <p id="eventFee" class="event-details"></p>
+      <p id="eventCapacity" class="event-details"></p>
+      <p id="eventRemainingSlots" class="event-details"></p>
+    </div>
+  </div>
     
     <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
 <script>
     $(document).ready(function() {
-    $('#calendar').fullCalendar();
- });
- </script>
+      fetch('https://quiz.vilor.com/api/events/listing', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        initializeFullCalendar(data);
+      })
+      .catch((error) => console.error('Error:', error));
+
+      function initializeFullCalendar(eventsData) {
+        const formattedEvents = eventsData.map(item => ({
+          title: item.name,
+          start: item.date, 
+          color: 'yellow',
+          textColor: 'black',
+          description: item.description,
+          image: item.img,
+          fee: item.fee,
+          capacity: item.capacity,
+          remainSlot: item.remainingSlots
+            
+        }));
+
+        $('#calendar').fullCalendar({
+          events: formattedEvents,
+          eventClick: function(event) {
+            $('#eventTitle').text(event.title);
+            $('#eventDescription').text(event.description);
+            $('#eventStart').text("Date: " + event.start.format("DD-MM-YYYY"));
+            $('#eventFee').text("Fee: RM" + event.fee);
+            $('#eventCapacity').text("Capacity: " + event.capacity);
+            $('#eventRemainingSlots').text("Remaining Slots: " + event.remainSlot);
+            $('#eventImage').attr('src', event.image);
+            $('#eventModal').css('display', 'block');
+          }
+        });
+
+      }
+      $('.close').on('click', function() {
+        $('#eventModal').css('display', 'none');
+      });
+
+      $(window).on('click', function(event) {
+        if (event.target.id === 'eventModal') {
+          $('#eventModal').css('display', 'none');
+        }
+      });
+    });
+  </script>
