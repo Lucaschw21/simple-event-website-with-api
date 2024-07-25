@@ -91,13 +91,3 @@ h2{
         padding: 20px;
     }
 }
-
-/* for calendar */
-
-.fc-view-container {
-    background-color: white;
-}
-
-#calendar {
-    margin: 20px; /* Adjust as needed */
-}
